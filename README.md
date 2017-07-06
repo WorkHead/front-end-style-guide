@@ -40,11 +40,14 @@
 
 ### 命名
 
-* 避免使用单一字母命名，让你的名字具有实际含义。
+* 避免使用无意义的命名，让你的名字具有实际含义。
 
     ```js
     // 不好
     function q() {
+        // ...
+    }
+    function fun1() {
         // ...
     }
 
@@ -53,6 +56,21 @@
         // ...
     }
     ```
+
+* 避免使用拼音或者拼音缩写命名，用英文或者英文缩写
+
+    ```js
+    //不好
+    function ceshi() {
+        //...
+    }
+
+    //好
+    function test() {
+        //...
+    }
+    ```
+
 * 使用 [小驼峰命名法](https://zh.wikipedia.org/wiki/%E9%A7%9D%E5%B3%B0%E5%BC%8F%E5%A4%A7%E5%B0%8F%E5%AF%AB) 来命名对象和函数。
 
     ```js
@@ -300,7 +318,7 @@
     const foo = {
         key1∙:∙value1,
         key2:value2,
-        key3∙:value3
+        key3∙:value3,
     };
 
     // 好
@@ -314,21 +332,21 @@
     ```js
     // 不好
     const foo = 1,bar = 2;
-    const arr = [1 ,2];
-    const obj = {"foo": "bar" , "baz": "qur"};
+    const arr = [1∙,2];
+    const obj = { "foo": "bar"∙,∙"baz": "qur" };
     foo(a,b);
-    new Foo(a ,b);
-    function foo(a , b){}
+    new Foo(a∙,b);
+    function foo(a∙,∙b){}
     a,b
 
     // 好
-    const foo = 1, bar = 2;
-    const arr = [1, 2];
-    const obj = {"foo": "bar", "baz": "qur"};
-    foo(a, b);
-    new Foo(a, b);
-    function foo(a, b){}
-    a, b
+    const foo = 1,∙bar = 2;
+    const arr = [1,∙2];
+    const obj = { "foo": "bar",∙"baz": "qur" };
+    foo(a,∙b);
+    new Foo(a,∙b);
+    function foo(a,∙b){}
+    a,∙b
     ```
 
 ### 逗号
@@ -502,6 +520,22 @@
     }
     console.log(a); // 引用错误：a未定义
     console.log(b); // 引用错误：b未定义
+    ```
+
+* 每个块级作用域下只出现一个`let`/`const`
+
+    ```js
+    //不好
+    let a;
+    let b;
+    const c = 1;
+    const d = 2;
+
+    //好
+    let a,
+        b;
+    const c = 1,
+        d = 2;
     ```
 
 ### 字符串
